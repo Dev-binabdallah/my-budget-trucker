@@ -1,23 +1,27 @@
-h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+#expense-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
 }
-
-p {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-div.add-expense{
-    background-color: #f0f0f0;
+.add-expense > form > input {
+    display: block;
+    width: 100%;
     padding: 10px;
-    border-radius: 5px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
-div.expenses-list{
-    background-color: #300808;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    
-}
+#expense-table tr:first-child {
+    background-color: white;
 
+}
+#expense-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+input:not([type="submit"]) {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input:focus {
+    outline: none;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
