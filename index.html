@@ -5,128 +5,270 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Budget Tracker</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>SpendWise | Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <div class="dashboard">
 
-    <header>
-        <img
-            src="img/logo.jpeg"
-            alt="Budget Tracker Logo"
-            width="200"
-            height="200"
-        >
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <a class="brand" href="#overview">
+                <span class="brand-icon" aria-hidden="true">S</span>
+                <span>SpendWise</span>
+            </a>
 
-        <h1>My Budget Tracker</h1>
-        <p>Track your income and expenses in one place.</p>
-    </header>
+            <p class="sidebar-label">MENU</p>
 
-    <main>
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <a class="nav-link active" href="#overview">
+                    <span aria-hidden="true">▦</span>
+                    Dashboard
+                </a>
+                <a class="nav-link" href="#categories">
+                    <span aria-hidden="true">▤</span>
+                    Categories
+                </a>
+                <a class="nav-link" href="#transactions">
+                    <span aria-hidden="true">↔</span>
+                    Transactions
+                </a>
+                <a class="nav-link" href="#budget">
+                    <span aria-hidden="true">◎</span>
+                    Budgets
+                </a>
+                <a class="nav-link" href="#savings">
+                    <span aria-hidden="true">◇</span>
+                    Savings
+                </a>
+            </nav>
 
-        <section class="add-expense">
-            <h2>Add Expense</h2>
+            <div class="sidebar-note">
+                <p>Smart money habits</p>
+                <span>Small steps today, a stronger financial future tomorrow.</span>
+            </div>
+        </aside>
 
-            <form id="expense-form">
-                <input
-                    id="expense-name"
-                    type="text"
-                    placeholder="Expense Name"
-                    required
-                >
+        <!-- Main dashboard area -->
+        <div class="main-area">
 
-                <input
-                    id="expense-amount"
-                    type="number"
-                    placeholder="Amount"
-                    min="0.01"
-                    step="0.01"
-                    required
-                >
+            <!-- Header -->
+            <header class="topbar">
+                <div class="header-title">
+                    <p class="eyebrow">PERSONAL FINANCE</p>
+                    <h1 id="overview">Dashboard Overview</h1>
+                    <p>Here is a snapshot of your monthly finances.</p>
+                </div>
 
-                <select id="expense-category" required>
-                    <option value="food">Food</option>
-                    <option value="transport">Transport</option>
-                    <option value="rent">Rent</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="health">Health</option>
-                    <option value="other">Other</option>
-                </select>
+                <div class="header-actions">
+                    <span class="month-label">October 2026</span>
+                    <a class="profile-link" href="#profile" aria-label="User profile">
+                        BA
+                    </a>
+                </div>
+            </header>
 
-                <button type="submit">Add Expense</button>
-            </form>
-        </section>
+            <main>
+                <!-- Financial overview -->
+                <section class="overview-grid" aria-label="Financial overview">
+                    <article class="overview-card">
+                        <p>Total Budget</p>
+                        <h2>$2,500.00</h2>
+                        <span class="card-note">Monthly plan</span>
+                    </article>
 
-        <section class="expenses">
-            <h2>Expense List</h2>
+                    <article class="overview-card">
+                        <p>Total Spent</p>
+                        <h2>$1,610.00</h2>
+                        <span class="card-note">64.4% of budget</span>
+                    </article>
 
-            <table id="expense-table">
-                <thead>
-                    <tr>
-                        <th>Expense Name</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
+                    <article class="overview-card">
+                        <p>Remaining Balance</p>
+                        <h2>$890.00</h2>
+                        <span class="card-note">35.6% available</span>
+                    </article>
+                </section>
 
-                <tbody>
-                    <tr>
-                        <td>Groceries</td>
-                        <td>$50.00</td>
-                        <td>Food</td>
-                    </tr>
+                <!-- Six expense categories -->
+                <section class="categories-section" id="categories">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Spending Categories</h2>
+                            <p>See how your monthly budget is distributed.</p>
+                        </div>
+                        <span class="static-label">SAMPLE DATA</span>
+                    </div>
 
-                    <tr>
-                        <td>Gas</td>
-                        <td>$30.00</td>
-                        <td>Transport</td>
-                    </tr>
+                    <div class="category-grid">
 
-                    <tr>
-                        <td>Utilities</td>
-                        <td>$100.00</td>
-                        <td>Rent</td>
-                    </tr>
+                        <a class="category-card food" href="#transactions">
+                            <div class="category-top">
+                                <span class="category-icon" aria-hidden="true">F</span>
+                                <span class="category-percent">60%</span>
+                            </div>
+                            <div class="category-info">
+                                <h3>Food</h3>
+                                <p>Groceries and meals</p>
+                            </div>
+                            <div class="category-amount">
+                                <strong>$300.00</strong>
+                                <span>of $500.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <span style="width: 60%"></span>
+                            </div>
+                        </a>
 
-                    <tr>
-                        <td>Entertainment</td>
-                        <td>$20.00</td>
-                        <td>Entertainment</td>
-                    </tr>
+                        <a class="category-card transport" href="#transactions">
+                            <div class="category-top">
+                                <span class="category-icon" aria-hidden="true">T</span>
+                                <span class="category-percent">40%</span>
+                            </div>
+                            <div class="category-info">
+                                <h3>Transport</h3>
+                                <p>Fuel and bus fares</p>
+                            </div>
+                            <div class="category-amount">
+                                <strong>$120.00</strong>
+                                <span>of $300.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <span style="width: 40%"></span>
+                            </div>
+                        </a>
 
-                    <tr>
-                        <td>Insurance</td>
-                        <td>$150.00</td>
-                        <td>Health</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+                        <a class="category-card rent" href="#transactions">
+                            <div class="category-top">
+                                <span class="category-icon" aria-hidden="true">R</span>
+                                <span class="category-percent">90%</span>
+                            </div>
+                            <div class="category-info">
+                                <h3>Rent</h3>
+                                <p>Housing and accommodation</p>
+                            </div>
+                            <div class="category-amount">
+                                <strong>$900.00</strong>
+                                <span>of $1,000.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <span style="width: 90%"></span>
+                            </div>
+                        </a>
 
-        <section class="tutorial">
-            <h2>Budgeting Tutorial</h2>
+                        <a class="category-card entertainment" href="#transactions">
+                            <div class="category-top">
+                                <span class="category-icon" aria-hidden="true">E</span>
+                                <span class="category-percent">30%</span>
+                            </div>
+                            <div class="category-info">
+                                <h3>Entertainment</h3>
+                                <p>Leisure and subscriptions</p>
+                            </div>
+                            <div class="category-amount">
+                                <strong>$60.00</strong>
+                                <span>of $200.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <span style="width: 30%"></span>
+                            </div>
+                        </a>
 
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/UAM1Ia5ZIp8"
-                title="Budgeting tutorial"
-                loading="lazy"
-                allowfullscreen>
-            </iframe>
-        </section>
+                        <a class="category-card savings" id="savings" href="#budget">
+                            <div class="category-top">
+                                <span class="category-icon" aria-hidden="true">S</span>
+                                <span class="category-percent">50%</span>
+                            </div>
+                            <div class="category-info">
+                                <h3>Savings</h3>
+                                <p>Emergency fund and goals</p>
+                            </div>
+                            <div class="category-amount">
+                                <strong>$150.00</strong>
+                                <span>of $300.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <span style="width: 50%"></span>
+                            </div>
+                        </a>
 
-        <details>
-            <summary>More Information</summary>
-            <p>
-                Here is some additional information
-                about the Budget Tracker app.
-            </p>
-        </details>
+                        <a class="category-card utilities" href="#transactions">
+                            <div class="category-top">
+                                <span class="category-icon" aria-hidden="true">U</span>
+                                <span class="category-percent">40%</span>
+                            </div>
+                            <div class="category-info">
+                                <h3>Utilities</h3>
+                                <p>Water, electricity and internet</p>
+                            </div>
+                            <div class="category-amount">
+                                <strong>$80.00</strong>
+                                <span>of $200.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <span style="width: 40%"></span>
+                            </div>
+                        </a>
 
-    </main>
+                    </div>
+                </section>
 
+                <!-- Static transaction list -->
+                <section class="transactions-section" id="transactions">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Recent Transactions</h2>
+                            <p>A preview of your latest expenses.</p>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Transaction</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Weekly groceries</td>
+                                    <td>Food</td>
+                                    <td>Oct 18, 2026</td>
+                                    <td>$75.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Bus fare</td>
+                                    <td>Transport</td>
+                                    <td>Oct 17, 2026</td>
+                                    <td>$12.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Electricity bill</td>
+                                    <td>Utilities</td>
+                                    <td>Oct 15, 2026</td>
+                                    <td>$35.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="budget-note" id="budget">
+                    <div>
+                        <h2>Keep your finances on track</h2>
+                        <p>Review your spending regularly and adjust your budget as needed.</p>
+                    </div>
+                    <span class="budget-status">Budget overview</span>
+                </section>
+            </main>
+
+            <footer id="profile">
+                SpendWise Dashboard · Static layout demonstration · 2026
+            </footer>
+        </div>
+    </div>
 </body>
 </html>
