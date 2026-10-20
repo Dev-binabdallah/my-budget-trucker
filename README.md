@@ -1,68 +1,90 @@
+# SpendWise: JavaScript Budget Calculator
 
-# My Budget Tracker
+## Project Description
 
-## Project Overview
+SpendWise is a personal budgeting project designed to help users understand their spending and manage their money. This project introduces JavaScript functionality to a dashboard by collecting budget information, calculating expenses, and displaying the remaining balance in the browser console.
 
-My Budget Tracker is a simple web application designed to help users
-view and organize their expenses. This project focuses on improving
-the visual design and usability of an existing application using CSS.
+## Features
+
+- Collects budget and expense information using JavaScript prompts.
+- Converts user input into numeric values.
+- Validates input to prevent invalid or negative amounts.
+- Calculates the remaining budget.
+- Identifies whether spending is within the budget or exceeds it.
+- Displays a clearly labelled budget summary in the browser console.
+- Uses reusable functions to organize the application logic.
 
 ## Technologies Used
 
-- HTML5 for page structure
-- CSS3 for styling and responsive layout
-- Google Fonts for typography
+- HTML5
+- CSS3
+- JavaScript
+- Git and GitHub
 
-## Project Files
+## JavaScript Concepts Implemented
 
-### index.html
+### 1. Variables
 
-Contains the existing structure of the application, including:
+The project uses `let` to declare variables such as `budget`, `totalExpenses`, and `remainingBalance`. These variables store the values required for budgeting calculations.
 
-- Page heading and budget tracker logo
-- Add Expense form
-- Expense List table
-- Budgeting tutorial video
-- Additional information section
+### 2. Data Types
 
-### style.css
+The application works with strings received from prompts, numeric values converted using `Number()`, and `null` when input is cancelled.
 
-Controls the visual appearance of the application. It includes:
+### 3. User Input
 
-- A consistent navy blue, teal, white, and light grey color palette
-- Poppins headings and Inter body text
-- Form input and button styling
-- Table borders, spacing, and alternating row colors
-- Card layouts using margin, padding, borders, and border-radius
-- Responsive styling for smaller screens
-- Focus and hover states for improved usability
+The `prompt()` function collects the user's budget and total expenses. The `getAmount()` function converts and validates the input before it is used in calculations.
 
-### img/logo.jpeg
+### 4. Budget Calculations
 
-Contains the Budget Tracker logo displayed in the page heading.
+The remaining balance is calculated by subtracting total expenses from the budget:
 
-## Design Decisions
+`Remaining Balance = Total Budget - Total Expenses`
 
-The application uses navy blue for headings and table headers,
-teal for primary actions, white for content cards, and light grey
-for the page background.
+For example, a budget of $2,500 and expenses of $1,610 leave a balance of $890.
 
-Poppins is used for headings to establish visual hierarchy, while
-Inter is used for body text to improve readability.
+### 5. Reusable Functions
 
-The page heading, Add Expense form, and Expense List are styled
-as separate cards. The CSS box model creates spacing and visual
-separation between these sections.
+The project includes three functions:
+
+- `getAmount()` collects and validates numeric input.
+- `calculateRemainingBudget()` calculates the remaining balance.
+- `displayBudgetSummary()` displays the results and budget status.
+
+These functions separate input handling, calculations, and output, making the code easier to understand and maintain.
+
+### 6. Console Output
+
+The `console.log()` method displays the budget, total expenses, remaining balance, and budget status in the browser's Developer Tools Console.
 
 ## How to Run the Project
 
-1. Clone or download the project repository.
-2. Ensure that index.html, style.css, and the img folder are present.
-3. Open index.html in a web browser.
-4. Connect to the internet to load Google Fonts and the tutorial video.
+1. Clone or download the repository.
+2. Open the project folder in Visual Studio Code.
+3. Open `index.html` in a browser, preferably using the Live Server extension.
+4. Enter the requested budget and expense amounts in the prompts.
+5. Open Developer Tools using `F12`.
+6. Select the Console tab to view the results.
 
-## Learning Outcomes
+## Project Structure
 
-This project demonstrates the use of CSS selectors, custom
-properties, Google Fonts, the CSS box model, table styling,
-form styling, pseudo-classes, hover effects, and responsive design.
+- `index.html` contains the dashboard structure.
+- `style.css` contains the dashboard styling.
+- `script.js` contains the budgeting logic.
+- `README.md` documents the project and its JavaScript implementation.
+
+## Future Improvements
+
+- Update dashboard summary cards dynamically.
+- Add individual expenses through a form.
+- Store expenses using browser local storage.
+- Calculate spending totals by category.
+- Add visual warnings when the budget is exceeded.
+
+## Author
+
+Bin Abdallah
+
+## License
+
+This project is developed for educational purposes.
