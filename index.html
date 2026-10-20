@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +32,7 @@
                     <span aria-hidden="true">↔</span>
                     Transactions
                 </a>
-                <a class="nav-link" href="#budget">
+                <a class="nav-link" href="#budget-controls">
                     <span aria-hidden="true">◎</span>
                     Budgets
                 </a>
@@ -73,20 +72,20 @@
                 <section class="overview-grid" aria-label="Financial overview">
                     <article class="overview-card">
                         <p>Total Budget</p>
-                        <h2>$2,500.00</h2>
+                        <h2 id="total-budget">$2,500.00</h2>
                         <span class="card-note">Monthly plan</span>
                     </article>
 
                     <article class="overview-card">
                         <p>Total Spent</p>
-                        <h2>$1,610.00</h2>
-                        <span class="card-note">64.4% of budget</span>
+                        <h2 id="total-spent">$1,610.00</h2>
+                        <span class="card-note" id="spent-note">64.4% of budget</span>
                     </article>
 
                     <article class="overview-card">
                         <p>Remaining Balance</p>
-                        <h2>$890.00</h2>
-                        <span class="card-note">35.6% available</span>
+                        <h2 id="remaining-balance">$890.00</h2>
+                        <span class="card-note" id="balance-note">35.6% available</span>
                     </article>
                 </section>
 
@@ -100,117 +99,50 @@
                         <span class="static-label">SAMPLE DATA</span>
                     </div>
 
-                    <div class="category-grid">
+                    <div class="category-grid" id="category-grid" aria-live="polite"></div>
+                </section>
 
-                        <a class="category-card food" href="#transactions">
-                            <div class="category-top">
-                                <span class="category-icon" aria-hidden="true">F</span>
-                                <span class="category-percent">60%</span>
-                            </div>
-                            <div class="category-info">
-                                <h3>Food</h3>
-                                <p>Groceries and meals</p>
-                            </div>
-                            <div class="category-amount">
-                                <strong>$300.00</strong>
-                                <span>of $500.00</span>
-                            </div>
-                            <div class="progress-track">
-                                <span style="width: 60%"></span>
-                            </div>
-                        </a>
-
-                        <a class="category-card transport" href="#transactions">
-                            <div class="category-top">
-                                <span class="category-icon" aria-hidden="true">T</span>
-                                <span class="category-percent">40%</span>
-                            </div>
-                            <div class="category-info">
-                                <h3>Transport</h3>
-                                <p>Fuel and bus fares</p>
-                            </div>
-                            <div class="category-amount">
-                                <strong>$120.00</strong>
-                                <span>of $300.00</span>
-                            </div>
-                            <div class="progress-track">
-                                <span style="width: 40%"></span>
-                            </div>
-                        </a>
-
-                        <a class="category-card rent" href="#transactions">
-                            <div class="category-top">
-                                <span class="category-icon" aria-hidden="true">R</span>
-                                <span class="category-percent">90%</span>
-                            </div>
-                            <div class="category-info">
-                                <h3>Rent</h3>
-                                <p>Housing and accommodation</p>
-                            </div>
-                            <div class="category-amount">
-                                <strong>$900.00</strong>
-                                <span>of $1,000.00</span>
-                            </div>
-                            <div class="progress-track">
-                                <span style="width: 90%"></span>
-                            </div>
-                        </a>
-
-                        <a class="category-card entertainment" href="#transactions">
-                            <div class="category-top">
-                                <span class="category-icon" aria-hidden="true">E</span>
-                                <span class="category-percent">30%</span>
-                            </div>
-                            <div class="category-info">
-                                <h3>Entertainment</h3>
-                                <p>Leisure and subscriptions</p>
-                            </div>
-                            <div class="category-amount">
-                                <strong>$60.00</strong>
-                                <span>of $200.00</span>
-                            </div>
-                            <div class="progress-track">
-                                <span style="width: 30%"></span>
-                            </div>
-                        </a>
-
-                        <a class="category-card savings" id="savings" href="#budget">
-                            <div class="category-top">
-                                <span class="category-icon" aria-hidden="true">S</span>
-                                <span class="category-percent">50%</span>
-                            </div>
-                            <div class="category-info">
-                                <h3>Savings</h3>
-                                <p>Emergency fund and goals</p>
-                            </div>
-                            <div class="category-amount">
-                                <strong>$150.00</strong>
-                                <span>of $300.00</span>
-                            </div>
-                            <div class="progress-track">
-                                <span style="width: 50%"></span>
-                            </div>
-                        </a>
-
-                        <a class="category-card utilities" href="#transactions">
-                            <div class="category-top">
-                                <span class="category-icon" aria-hidden="true">U</span>
-                                <span class="category-percent">40%</span>
-                            </div>
-                            <div class="category-info">
-                                <h3>Utilities</h3>
-                                <p>Water, electricity and internet</p>
-                            </div>
-                            <div class="category-amount">
-                                <strong>$80.00</strong>
-                                <span>of $200.00</span>
-                            </div>
-                            <div class="progress-track">
-                                <span style="width: 40%"></span>
-                            </div>
-                        </a>
-
+                <!-- Interactive budget and expense controls -->
+                <section class="transactions-section" id="budget-controls">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Manage Your Budget</h2>
+                            <p>Set a monthly budget and record expenses.</p>
+                        </div>
                     </div>
+                    <form id="budget-form" class="budget-form">
+                        <label for="budget-input">Monthly budget ($)</label>
+                        <input id="budget-input" type="number" min="0.01" step="0.01" value="2500" required>
+                        <button type="submit">Update Budget</button>
+                    </form>
+
+                    <form id="expense-form" class="expense-form">
+                        <div class="form-field">
+                            <label for="expense-name">Expense name</label>
+                            <input id="expense-name" type="text" placeholder="e.g. Groceries" maxlength="80" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="expense-category">Category</label>
+                            <select id="expense-category" required>
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Savings">Savings</option>
+                                <option value="Utilities">Utilities</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="expense-date">Date</label>
+                            <input id="expense-date" type="date" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="expense-amount">Amount ($)</label>
+                            <input id="expense-amount" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+                        </div>
+                        <button type="submit">Add Expense</button>
+                    </form>
+                    <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
                 </section>
 
                 <!-- Static transaction list -->
@@ -230,28 +162,10 @@
                                     <th>Category</th>
                                     <th>Date</th>
                                     <th>Amount</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Weekly groceries</td>
-                                    <td>Food</td>
-                                    <td>Oct 18, 2026</td>
-                                    <td>$75.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Bus fare</td>
-                                    <td>Transport</td>
-                                    <td>Oct 17, 2026</td>
-                                    <td>$12.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Electricity bill</td>
-                                    <td>Utilities</td>
-                                    <td>Oct 15, 2026</td>
-                                    <td>$35.00</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="expense-list"></tbody>
                         </table>
                     </div>
                 </section>
@@ -261,12 +175,12 @@
                         <h2>Keep your finances on track</h2>
                         <p>Review your spending regularly and adjust your budget as needed.</p>
                     </div>
-                    <span class="budget-status">Budget overview</span>
+                    <span class="budget-status" id="budget-status">Budget overview</span>
                 </section>
             </main>
 
             <footer id="profile">
-                SpendWise Dashboard · Static layout demonstration · 2026
+                SpendWise Dashboard · Interactive budget tracker · 2026
             </footer>
         </div>
     </div>

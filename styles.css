@@ -671,3 +671,123 @@ footer {
         animation-duration: 0.01ms !important;
     }
 }
+
+
+/* 15. Interactive JavaScript features */
+.budget-form,
+.expense-form {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.form-field {
+    display: flex;
+    flex: 1 1 150px;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.budget-form label,
+.expense-form label {
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.budget-form input,
+.expense-form input,
+.expense-form select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.budget-form input:focus,
+.expense-form input:focus,
+.expense-form select:focus {
+    outline: 3px solid color-mix(in srgb, var(--focus-color) 25%, transparent);
+    border-color: var(--focus-color);
+}
+
+.budget-form button,
+.expense-form button,
+.delete-expense {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.budget-form button:hover,
+.expense-form button:hover {
+    background: var(--accent-hover);
+}
+
+.form-message {
+    min-height: 1.5em;
+    margin: 12px 0 0;
+    font-weight: 600;
+}
+
+.form-message.success {
+    color: var(--accent);
+}
+
+.form-message.error {
+    color: #dc2626;
+}
+
+.delete-expense {
+    min-height: 32px;
+    padding: 5px 9px;
+    background: #b91c1c;
+    font-size: 0.8rem;
+}
+
+.delete-expense:hover {
+    background: #991b1b;
+}
+
+.category-card .category-amount {
+    justify-content: space-between;
+}
+
+.category-card .category-amount strong {
+    overflow-wrap: anywhere;
+}
+
+.category-card .progress-track span {
+    transition: width 200ms ease;
+}
+
+.budget-status.over-budget {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+@media (max-width: 767px) {
+    .budget-form,
+    .expense-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .budget-form button,
+    .expense-form button {
+        width: 100%;
+    }
+}

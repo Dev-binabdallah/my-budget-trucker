@@ -1,90 +1,87 @@
-# SpendWise: JavaScript Budget Calculator
+# SpendWise: Interactive Budget Tracker
 
-## Project Description
+## Project Overview
 
-SpendWise is a personal budgeting project designed to help users understand their spending and manage their money. This project introduces JavaScript functionality to a dashboard by collecting budget information, calculating expenses, and displaying the remaining balance in the browser console.
+SpendWise is a personal budgeting dashboard that lets users set a monthly budget, record expenses, view spending by category, and monitor their remaining balance. This week's update moves the project from a static visual dashboard to an interactive application powered by JavaScript.
 
-## Features
+## Improvements Made This Week
 
-- Collects budget and expense information using JavaScript prompts.
-- Converts user input into numeric values.
-- Validates input to prevent invalid or negative amounts.
-- Calculates the remaining budget.
-- Identifies whether spending is within the budget or exceeds it.
-- Displays a clearly labelled budget summary in the browser console.
-- Uses reusable functions to organize the application logic.
+- Added a form to update the monthly budget.
+- Added a form to record an expense name, category, date, and amount.
+- Stored multiple expense records in an array of objects.
+- Added dynamic calculations for total spending and remaining balance.
+- Generated category cards and transaction rows from JavaScript data.
+- Added conditional feedback for valid inputs, budget limits, and errors.
+- Added delete buttons for expense records.
+- Added event listeners for form submissions and delete actions.
+- Updated the DOM whenever the underlying data changes.
 
-## Technologies Used
+## JavaScript Concepts
 
-- HTML5
-- CSS3
-- JavaScript
-- Git and GitHub
+### Conditionals
 
-## JavaScript Concepts Implemented
+`if`, `else if`, and `else` statements validate input and determine whether spending is within budget, exactly at the budget limit, or over budget. Invalid amounts and missing values are rejected with a message.
 
-### 1. Variables
+### Arrays and Objects
 
-The project uses `let` to declare variables such as `budget`, `totalExpenses`, and `remainingBalance`. These variables store the values required for budgeting calculations.
+The `expenses` array stores expense objects. Each object contains an ID, name, category, date, and amount. This makes it possible to store and manage multiple records instead of relying on separate variables for every expense.
 
-### 2. Data Types
+The `categoryBudgets` array stores category names, descriptions, category budgets, CSS class names, and icons.
 
-The application works with strings received from prompts, numeric values converted using `Number()`, and `null` when input is cancelled.
+### Loops
 
-### 3. User Input
+`for...of` loops process expense records to calculate total spending, calculate category totals, render category cards, and render transaction rows. This keeps the code scalable as more records are added.
 
-The `prompt()` function collects the user's budget and total expenses. The `getAmount()` function converts and validates the input before it is used in calculations.
+### DOM Manipulation
 
-### 4. Budget Calculations
+The application uses `document.getElementById()`, `document.createElement()`, `textContent`, `append()`, `replaceChildren()`, and `classList` to update dashboard values and page content. Summary cards, category cards, transaction rows, progress indicators, and budget status are updated directly on the webpage.
 
-The remaining balance is calculated by subtracting total expenses from the budget:
+### Events and User Interaction
 
-`Remaining Balance = Total Budget - Total Expenses`
+The `submit` event listeners handle budget updates and expense creation. `event.preventDefault()` prevents a form submission from reloading the page. A delegated `click` listener on the transaction table handles delete buttons, including buttons created dynamically.
 
-For example, a budget of $2,500 and expenses of $1,610 leave a balance of $890.
+### Functions
 
-### 5. Reusable Functions
+- `formatCurrency()` formats monetary values.
+- `calculateTotalExpenses()` calculates the sum of all expenses.
+- `calculateCategoryTotal()` calculates the spending total for a category.
+- `renderSummary()` updates the budget summary and budget status.
+- `renderCategories()` generates category cards and progress bars.
+- `renderExpenses()` generates the transaction table.
+- `renderDashboard()` refreshes the dashboard after data changes.
+- `showMessage()` displays feedback to the user.
 
-The project includes three functions:
+## Challenges and Resolutions
 
-- `getAmount()` collects and validates numeric input.
-- `calculateRemainingBudget()` calculates the remaining balance.
-- `displayBudgetSummary()` displays the results and budget status.
+1. **Static dashboard values:** The original values were hard-coded in HTML. They were replaced with JavaScript-rendered values so the dashboard updates when expenses change.
+2. **Managing multiple expenses:** Separate variables would be difficult to maintain. An array of objects now stores all expense records.
+3. **Keeping calculations consistent:** The dashboard is refreshed through `renderDashboard()` after adding, deleting, or updating data.
+4. **Handling invalid input:** Conditional checks reject blank names, missing dates, non-numeric amounts, and amounts that are zero or negative.
+5. **Handling dynamically created buttons:** Event delegation on the expense table ensures delete buttons work even when rows are generated after page load.
 
-These functions separate input handling, calculations, and output, making the code easier to understand and maintain.
+## How to Run
 
-### 6. Console Output
-
-The `console.log()` method displays the budget, total expenses, remaining balance, and budget status in the browser's Developer Tools Console.
-
-## How to Run the Project
-
-1. Clone or download the repository.
+1. Download or clone this repository.
 2. Open the project folder in Visual Studio Code.
 3. Open `index.html` in a browser, preferably using the Live Server extension.
-4. Enter the requested budget and expense amounts in the prompts.
-5. Open Developer Tools using `F12`.
-6. Select the Console tab to view the results.
+4. Update the monthly budget or add and delete expenses.
+5. Observe the summary cards, category cards, progress bars, transaction list, and budget status update immediately.
 
-## Project Structure
+## Project Files
 
-- `index.html` contains the dashboard structure.
-- `style.css` contains the dashboard styling.
-- `script.js` contains the budgeting logic.
-- `README.md` documents the project and its JavaScript implementation.
+- `index.html`: Dashboard structure and forms.
+- `style.css`: Layout, styling, and responsive design.
+- `script.js`: Data, calculations, DOM updates, and event handling.
+- `README.md`: Project documentation.
 
-## Future Improvements
+## Limitations
 
-- Update dashboard summary cards dynamically.
-- Add individual expenses through a form.
-- Store expenses using browser local storage.
-- Calculate spending totals by category.
-- Add visual warnings when the budget is exceeded.
+Expense records are currently stored in JavaScript memory. Refreshing the page resets added or deleted records to the sample data. Browser storage or a database can be added in a future version.
 
 ## Author
 
 Bin Abdallah
 
-## License
+## Purpose
 
-This project is developed for educational purposes.
+Educational project demonstrating JavaScript conditionals, arrays, loops, functions, DOM manipulation, and event listeners.
